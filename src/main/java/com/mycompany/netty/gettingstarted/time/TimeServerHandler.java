@@ -25,18 +25,14 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
         time.writeInt((int)(System.currentTimeMillis() / 1000L + 2208988800L));
 
         final ChannelFuture channelFuture = channelHandlerContext.writeAndFlush(time);
-        channelFuture.addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                if (channelFuture == future) {
-                    LOGGER.info("Closing");
-                    channelHandlerContext.close();
-                } else {
-                    LOGGER.error("Ooops something went wrong with writing");
-                    throw new IllegalStateException("Wrote on the wire and operation completed but future is not right");
-                }
-            }
-        });
+//        channelFuture.addListener(new ChannelFutureListener() {
+//            @Override
+//            public void operationComplete(ChannelFuture future) throws Exception {
+//                assert (channelFuture == future);
+//                channelHandlerContext.close();
+//            }
+//        });
+        channelFuture.addListener(ChannelFutureListener.CLOSE);
 
     }
 

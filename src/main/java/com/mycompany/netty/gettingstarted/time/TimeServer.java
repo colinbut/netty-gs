@@ -52,8 +52,8 @@ public class TimeServer {
         } catch (InterruptedException e) {
             LOGGER.error(e);
         } finally {
-            bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
         }
     }
 
