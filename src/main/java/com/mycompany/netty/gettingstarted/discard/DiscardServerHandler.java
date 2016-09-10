@@ -8,11 +8,14 @@ package com.mycompany.netty.gettingstarted.discard;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import org.apache.log4j.Logger;
 
 /**
  * Handles a server-side channel
  */
-public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
+class DiscardServerHandler extends ChannelInboundHandlerAdapter {
+
+    private static final Logger LOGGER = Logger.getLogger(DiscardServerHandler.class);
 
     /**
      * Discards a message received silently
@@ -21,12 +24,15 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext channelHandlerContext, Object message) {
-        ((ByteBuf)message).release();
+        if (((ByteBuf)message).release()) {
+            LOGGER.info("Successfully released reference-counted ByteBuf object");
+        }
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext channelHandlerContext, Throwable cause) {
-
+        LOGGER.error(cause);
+        channelHandlerContext.close();
     }
 
 }
