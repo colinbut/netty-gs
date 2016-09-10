@@ -53,8 +53,8 @@ public class DiscardServer {
             channelFuture.channel().closeFuture().sync();
 
         } finally {
-            bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
         }
     }
 

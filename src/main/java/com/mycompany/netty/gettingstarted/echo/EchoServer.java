@@ -48,8 +48,8 @@ public class EchoServer {
             LOGGER.error(e);
         } finally {
             LOGGER.info("Closing resources");
-            bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            bossGroup.shutdownGracefully();
         }
     }
 
