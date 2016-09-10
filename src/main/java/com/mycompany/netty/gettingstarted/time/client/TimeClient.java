@@ -6,6 +6,7 @@
 package com.mycompany.netty.gettingstarted.time.client;
 
 import com.mycompany.netty.gettingstarted.time.client.handler.SimpleTimeClientHandler;
+import com.mycompany.netty.gettingstarted.time.client.handler.decoder.TimeDecoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -36,7 +37,7 @@ public class TimeClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        socketChannel.pipeline().addLast(new SimpleTimeClientHandler());
+                        socketChannel.pipeline().addLast(new TimeDecoder(), new SimpleTimeClientHandler());
                     }
                 });
 
