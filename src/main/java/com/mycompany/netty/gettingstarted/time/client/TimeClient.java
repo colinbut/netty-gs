@@ -5,6 +5,7 @@
  */
 package com.mycompany.netty.gettingstarted.time.client;
 
+import com.mycompany.netty.gettingstarted.time.client.handler.SimpleTimeClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

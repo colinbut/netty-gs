@@ -3,7 +3,7 @@
  * | Copyright © 2016 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.netty.gettingstarted.time.client;
+package com.mycompany.netty.gettingstarted.time.client.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
