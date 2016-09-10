@@ -3,7 +3,7 @@
  * | Copyright © 2016 Colin But. All rights reserved. 
  * |-------------------------------------------------
  */
-package com.mycompany.netty.gettingstarted.time;
+package com.mycompany.netty.gettingstarted.time.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
