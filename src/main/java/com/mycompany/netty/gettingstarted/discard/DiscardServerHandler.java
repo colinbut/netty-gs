@@ -5,5 +5,28 @@
  */
 package com.mycompany.netty.gettingstarted.discard;
 
-public class DiscardServerHandler {
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+
+/**
+ * Handles a server-side channel
+ */
+public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
+
+    /**
+     * Discards a message received silently
+     *
+     * {@inheritDoc}
+     */
+    @Override
+    public void channelRead(ChannelHandlerContext channelHandlerContext, Object message) {
+        ((ByteBuf)message).release();
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext channelHandlerContext, Throwable cause) {
+
+    }
+
 }
