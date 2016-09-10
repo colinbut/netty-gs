@@ -20,7 +20,7 @@ class DiscardServerHandler2 extends ChannelInboundHandlerAdapter {
         ByteBuf in = (ByteBuf) message;
         try {
             while (in.isReadable()) {
-                LOGGER.info(in.readByte());
+                LOGGER.info((char)in.readByte());
             }
         } finally {
             ReferenceCountUtil.release(message);
