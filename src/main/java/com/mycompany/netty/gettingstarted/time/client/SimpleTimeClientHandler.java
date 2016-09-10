@@ -12,9 +12,9 @@ import org.apache.log4j.Logger;
 
 import java.util.Date;
 
-public class TimeClientHandler extends ChannelInboundHandlerAdapter {
+public class SimpleTimeClientHandler extends ChannelInboundHandlerAdapter {
 
-    private static final Logger LOGGER = Logger.getLogger(TimeClientHandler.class);
+    private static final Logger LOGGER = Logger.getLogger(SimpleTimeClientHandler.class);
 
     @Override
     public void channelRead(ChannelHandlerContext channelHandlerContext, Object message) {
